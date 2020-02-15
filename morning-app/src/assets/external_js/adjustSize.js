@@ -13,7 +13,7 @@ function adjustSize(circle) {
     // following two variables are customisable
 
     // minimum radius of circle
-    let minRadius = 1.5;
+    let minRadius = 1;
 
     // more iteration, more accurate, slower
     const maxIteration = 100;
@@ -27,63 +27,68 @@ function adjustSize(circle) {
 
     const text = circle.children[0];
 
-    let maxRadius = 10;
+    let maxRadius = 3;
+
+    const sideLength = (2 * maxRadius) + 'rem';
+    circle.style.width = sideLength;
+    circle.style.height = sideLength;
+    circle.style.borderRadius = maxRadius + 'rem';
 
     // find a rough max bound for maximum radius that fit the text
-    while (true) {
-        // update DOM size
-        const sideLength = (2 * maxRadius) + 'rem';
-        circle.style.width = sideLength;
-        circle.style.height = sideLength;
-        circle.style.borderRadius = maxRadius + 'rem';
+    // while (true) {
+    //     // update DOM size
+    //     const sideLength = (2 * maxRadius) + 'rem';
+    //     circle.style.width = sideLength;
+    //     circle.style.height = sideLength;
+    //     circle.style.borderRadius = maxRadius + 'rem';
 
-        const circleBottom = circle.offsetTop + circle.offsetHeight;
-        const textTop = text.offsetTop;
-        const textBottom = text.offsetTop + text.offsetHeight;
-        // text is completely inside circle in DOM
-        const isSizeFit = textTop < circleBottom && textBottom < circleBottom;
-        if (isSizeFit) {
-            break;
-        } else {
-            maxRadius *= 2;
-        }
-    }
+    //     const circleBottom = circle.offsetTop + circle.offsetHeight;
+    //     const textTop = text.offsetTop;
+    //     const textBottom = text.offsetTop + text.offsetHeight;
+    //     // text is completely inside circle in DOM
+    //     const isSizeFit = textTop < circleBottom && textBottom < circleBottom;
+    //     if (isSizeFit) {
+    //         break;
+    //     } else {
+    //         maxRadius *= 2;
+    //     }
+    // }
 
-    let iterationCount = 0;
+    // let iterationCount = 0;
 
-    // do iterations to find a fit in a binary search manner
-    while (true) {
-        // update DOM size
-        const currentRadius = (maxRadius + minRadius) / 2;
-        const sideLength = (2 * currentRadius) + 'rem';
-        circle.style.width = sideLength;
-        circle.style.height = sideLength;
-        circle.style.borderRadius = currentRadius + 'rem';
+    // // do iterations to find a fit in a binary search manner
+    // while (true) {
+    //     // update DOM size
+    //     const currentRadius = (maxRadius + minRadius) / 2;
+    //     const sideLength = (2 * currentRadius) + 'rem';
+    //     circle.style.width = sideLength;
+    //     circle.style.height = sideLength;
+    //     circle.style.borderRadius = currentRadius + 'rem';
 
-        const circleBottom = circle.offsetHeight;
-        const textTop = text.offsetTop;
-        const textBottom = text.offsetTop + text.offsetHeight;
-        // text is completely inside circle in DOM
-        const isSizeFit = textTop < circleBottom && textBottom < circleBottom;
-        if (isSizeFit) {
-            if (iterationCount > maxIteration) {
-                // fit and accurate enough, stop
-                break;
-            } else {
-                // fit but can be more small, decrease max
-                maxRadius = currentRadius;
-            }
-        } else {
-            // too small, increase min
-            minRadius = currentRadius;
+    //     const circleBottom = circle.offsetHeight;
+    //     const textTop = text.offsetTop;
+    //     const textBottom = text.offsetTop + text.offsetHeight;
+    //     // text is completely inside circle in DOM
+    //     const isSizeFit = textTop < circleBottom && textBottom < circleBottom;
+    //     if (isSizeFit) {
+    //         if (iterationCount > maxIteration) {
+    //             // fit and accurate enough, stop
+    //             break;
+    //         } else {
+    //             // fit but can be more small, decrease max
+    //             maxRadius = currentRadius;
+    //         }
+    //     } else {
+    //         // too small, increase min
+    //         minRadius = currentRadius;
 
-            // fix bug: in some cases it causes infinite loop using only binary search
-            // because the lower fit might be omitted by halving radius
-            // so slightly increase it will solve the problem.
-            maxRadius *= 1.01;
-        }
-        ++iterationCount;
-    }
+    //         // fix bug: in some cases it causes infinite loop using only binary search
+    //         // because the lower fit might be omitted by halving radius
+    //         // so slightly increase it will solve the problem.
+    //         maxRadius *= 1.01;
+    //     }
+    //     ++iterationCount;
+    // }
 }
 
 /*
@@ -102,6 +107,10 @@ function makeCircle(content) {
     circle.classList.add('circle');
     circle.appendChild(text);
     text.innerHTML = content;
+    // var colors = ['#FFA501', '#06AED5', '#FFF1D0'];
+    var colors = ['#06AED5', '#AEE5D8', '#FFA501', '#FE5F55'];
+    var random_color = colors[Math.floor(Math.random() * colors.length)];
+    circle.style.background = random_color
 
     // when circle is appended to HTML, adjust its size
     // use higher order function here will cause IE to crash

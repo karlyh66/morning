@@ -8,8 +8,9 @@
 .circle {
     position: absolute;
     background: #3DB2D9;
-    color: black;
-    font-size:12px;
+    color: white;
+    font-size:20px;
+    font-weight: bold;
     text-align: center;
     width: 2rem;
     height: 2rem;
@@ -33,10 +34,13 @@ if not support but still try to adjust, it might crash
 .circle > span {
     /* these magical numbers are to place the span inside the square of the circle*/
     position: absolute;
-    left: 14.64466094067263%;
-    top: 14.64466094067263%;
-    width: 70.71067811865474%;
-    padding-bottom: 14.64466094067263%;
+    left: 25%;
+    right: 25%;
+    width: 74%;
+    top: 37%;
+    bottom:50%;
+    /* padding-top: 50%;
+    padding-bottom: 50%; */
 }
 
 @supports (shape-outside: polygon(0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%, 5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0% 100%)) {
@@ -60,7 +64,7 @@ if not support but still try to adjust, it might crash
     .circle > span {
         position: relative;
         left: 0;
-        top: 1000;
+        top: 25 !important;
         width: 0;
         padding-bottom: 0;
     }

@@ -273,7 +273,7 @@ function CircleManager(containerID) {
         let relativeY;
 
         circle.HTML.onmouseover = () => {
-            circle.scale = 1.5;
+            circle.scale = 1.75;
         };
 
         circle.HTML.onmouseout = () => {
@@ -355,8 +355,8 @@ function CircleManager(containerID) {
         }
         const xToGravity = gravity.x - circle.xCenter;
         const yToGravity = gravity.y - circle.yCenter;
-        const xMinSpeed = xToGravity / 200;
-        const yMinSpeed = yToGravity / 200;
+        const xMinSpeed = xToGravity / 500;
+        const yMinSpeed = yToGravity / 500;
         circle.xSpeed = xMinSpeed;
         circle.ySpeed = yMinSpeed;
 
@@ -366,7 +366,7 @@ function CircleManager(containerID) {
     // add a circle to container with delay
     // content: the string displayed inside circle
     // delay: add to container after delay, in milliseconds, default to 0
-    function add(content, delay = 0) {
+    function add(content, delay = 350) {
         setTimeout(() => addNoDelay(content), delay);
     }
 
@@ -411,7 +411,7 @@ function CircleManager(containerID) {
                     const distance = circle.distanceTo(otherCircle);
 
                     // Calculate displacement required
-                    const distanceOverlap = -0.5 * circle.collideDistance(otherCircle);
+                    const distanceOverlap = -0.35 * circle.collideDistance(otherCircle);
 
                     if (!circle.movable) {
                         // Displace Target Ball away from collision fully from unmovable circle
