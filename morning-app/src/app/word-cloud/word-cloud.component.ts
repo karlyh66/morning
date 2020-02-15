@@ -14,8 +14,6 @@ export class WordCloudComponent implements OnInit {
 
     let circleManager = new CircleManager('container');
     circleManager.add("Hello there!");
-    circleManager.add("How are you?");
-    circleManager.add("How are you?");
   }
 
 }
