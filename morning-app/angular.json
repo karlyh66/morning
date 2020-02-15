@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/adjustSize.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/external_js/adjustSize.js",
+              "src/assets/external_js/anime.min.js",
+              "src/assets/external_js/circleCollision.js"
+            ]
           },
           "configurations": {
             "production": {
