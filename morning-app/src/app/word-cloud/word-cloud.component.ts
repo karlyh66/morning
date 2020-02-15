@@ -13,6 +13,7 @@ export class WordCloudComponent implements OnInit {
   ngOnInit() {
 
     let circleManager = new CircleManager('container');
+    circleManager.add("Hello there!Hello there!Hello there!Hello there!Hello there!Hello there!Hello there!Hello there!");
     circleManager.add("Hello there!");
   }
 
