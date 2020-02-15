@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import  *  as  data  from 'src/data/words.json';
 declare const CircleManager: any;
 
 @Component({
@@ -12,12 +13,33 @@ export class WordCloudComponent implements OnInit {
 
   ngOnInit() {
 
-    let words = this.randomNumbers(25, 1000);
+    let pos_words = this.randomWordSeed(data.positive, 14);
+    let neg_words = this.randomWordSeed(data.negative, 14);
 
     let circleManager = new CircleManager('container');
-    circleManager.add("Hello there!Hello there!Hello there!Hello there!Hello there!Hello there!Hello there!Hello there!");
-    circleManager.add("Hello there!");
+    this.addWords(circleManager, pos_words);
+    this.addWords(circleManager, neg_words);
+  }
 
+  addWords(circleManager, words) {
+    words.forEach(word => {
+      circleManager.add(word);
+    });
+  }
+
+  randomWordSeed(words, total) {
+
+    let wordIndices  = this.randomNumbers(total, words.length);
+
+    console.log(wordIndices);
+
+    let word_list = []
+
+    wordIndices.forEach(item => {
+      word_list.push(words[item])
+    });
+
+    return word_list;
   }
 
   randomNumbers(n, max) {
