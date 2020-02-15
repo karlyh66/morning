@@ -13,10 +13,10 @@ function adjustSize(circle) {
     // following two variables are customisable
 
     // minimum radius of circle
-    let minRadius = 1;
+    let minRadius = 1.5;
 
     // more iteration, more accurate, slower
-    const maxIteration = 200;
+    const maxIteration = 100;
 
     // following are not customisable
     if (typeof circle === 'string') {
@@ -97,6 +97,7 @@ function makeCircle(content) {
     // create elements
     const circle = document.createElement('div');
     const text = document.createElement('span');
+
 
     circle.classList.add('circle');
     circle.appendChild(text);
