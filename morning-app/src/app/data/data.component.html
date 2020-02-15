@@ -1,1 +1,21 @@
-<p>data works!</p>
+<div ng-app = "graphs">
+
+  <div ng-controller = "graphController as graph">
+
+    <div class = "chart" style = "width:{{width}}px; height:{{height}}px;" >
+
+      <div class = "y" style="width:{{height}}px;">{{yAxis}}</div>
+
+      <div class = "x">{{xAxis}}</div>
+
+      <div ng-repeat = "bar in data"{{bar}} class = "bar" 
+      	style = "height:{{bar.value / max * height}}px; 
+      	width:{{width / data.length - 5}}px; 
+      	left:{{$index / data.length * width}}px; ">     		
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
