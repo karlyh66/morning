@@ -1,0 +1,46 @@
+<div id="frontier" ng-app="myApp">
+    <div ng-controller="mainCtrl">
+     
+      <h1 class="sourceLabel">Tech Crunch</h1>
+      <div class="flexCont">
+        <div class="article" ng-repeat="item in articles">
+           
+          
+          <a href="{{item.url}}" id="infotainer" target="_blank">
+             <img class="imageCover" src="{{item.urlToImage}}" alt="{{articles.title}}" />
+            <h2 class="itemName">{{item.title}}</h2>
+  
+            <h4 class="itemAuthorName">{{item.author}}</h4>
+            <p class="itemDesc">{{item.description}}</p>
+          </a>
+          <!--         infotainer end -->
+        </div>
+        <!--     end ng-repeat div -->
+      </div>
+      <!--     end flexCont -->
+    </div>
+    <!-- end main controller div -->
+    
+  <!--   REPEAT WITH Ars Technica API -->
+    
+      <div ng-controller="mainCtrl">
+        <h1 class="sourceLabel">Ars Technica</h1>
+        <div class="flexCont">
+          <div class="article" ng-repeat="item in articlesArs">
+            <a href="{{item.url}}" id="infotainer" target="_blank">
+             <img class="imageCover" src="{{item.urlToImage}}" alt="{{item.title}}" />
+              <h2 class="itemName">{{item.title}}</h2>
+  
+              <h4 class="itemAuthorName">{{item.author}}</h4>
+              <p class="itemDesc">{{item.description}}</p>
+            </a>
+            <!--         infotainer end -->
+          </div>
+          <!--     end ng-repeat div -->
+        </div>
+        <!--     end flexCont -->
+      </div>
+    <!-- end main controller div -->
+  <!--   END Ars Technica API REPEAT -->
+  </div>
+  <!-- end frontier div -->
