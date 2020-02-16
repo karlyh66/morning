@@ -189,6 +189,7 @@ function CircleManager(containerID) {
     const circles = [];
     let circleCount = 0;
     let enableDynamicCollision = true;
+    let picked = [];
 
     window.onresize = () => {
         // adjust circle size
@@ -205,10 +206,15 @@ function CircleManager(containerID) {
     // this can be defined by user
     let onclick = (content) => {
         console.log("Click:", content);
+        picked.push(content);
     };
 
     // record the number of updates
     let updateCount = 0;
+
+    function getPicked() {
+        return picked;
+    }
 
     function getContainerWidthInRem() {
         return pxToRem(parsePx(getComputedStyle(container).width));
@@ -501,5 +507,6 @@ function CircleManager(containerID) {
         },
 
         add,
+        getPicked,
     }
 }

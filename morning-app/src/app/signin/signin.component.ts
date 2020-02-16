@@ -31,7 +31,6 @@ export class SigninComponent implements OnInit {
         console.log(currentUser);
         this.userService.AddUser(currentUser);
         this.router.navigateByUrl('/home');
-        location.reload();
       } else {
         let user = this.userService.GetUser(fbUser.uid).valueChanges().subscribe(user => {
           localStorage.setItem('user', JSON.stringify(user));
