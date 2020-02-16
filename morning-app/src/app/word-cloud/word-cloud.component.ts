@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  *  as  data  from 'src/data/words.json';
+import  *  as  data  from '../../data/words.json';
 declare const CircleManager: any;
 
 @Component({
