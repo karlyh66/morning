@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: SigninComponent },
   { path: 'home', component: WordCloudComponent,  canActivate: [AuthGuard]},
-  { path: 'stats', component: StatsComponent,  canActivate: [AuthGuard]}
+  { path: 'stats', component: StatsComponent, data: { animation: 'fadder' } , canActivate: [AuthGuard]}
 ];
 
 @NgModule({

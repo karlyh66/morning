@@ -1,18 +1,30 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Helvetica Neue", sans-serif;
-    background-color: #FFF1D0 ;
-  }
+.container-box {
+  height: 50vh !important;
+  margin-top: 10% !important;
+  margin: auto;
+  background-color: #fff1d0 !important;
+}
 
-  .container-box {
-    height: 50vh !important;
-    margin-top: 10% !important;
-    margin: auto;
-  }
+.thankyou-message {
+  margin: 0 auto;
+  color: gray;
+  text-align: center;
+}
 
-  .thankyou-message {
-      margin: 0 auto;
-      color: gray;
-      text-align: center;
-  }
+.results-button {
+  margin-top: 100px;
+  font-size: 20px;
+}
+
+.dashboard-box {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff1d0 !important;
+}
+
+.dashboard-image {
+    max-width: 100%;
+    max-height: 50vh;
+    height: auto;
+}
