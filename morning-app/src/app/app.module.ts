@@ -11,6 +11,10 @@ import { TitleBarComponent } from './title-bar/title-bar.component';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
+import { AngularWeatherWidgetModule } from 'angular2-weather-widget';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +23,9 @@ import { NewUserComponent } from './new-user/new-user.component';
     NewUserComponent
   ],
   imports: [
+    AngularWeatherWidgetModule,
+    HttpClientModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
  	  AngularFirestoreModule,
     BrowserModule,
