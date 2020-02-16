@@ -1,0 +1,25 @@
+<div class="ui container" id="container-log-in">
+    <img class="ui centered medium image" src="../../assets/images/logo.png">
+    <div class="ui basic segment">
+        <!-- <div class="content">
+            <form class="ui form" (ngSubmit)="emailLogin()">
+                <div class="ui left icon input fluid">
+                    <input type="email" [(ngModel)]="credentials.email" placeholder="Email address" name="email">
+                    <i class="user icon"></i>
+                </div>
+                <div class="ui left icon input fluid" id="input-login">
+                    <input type="password" [(ngModel)]="credentials.password" placeholder="Password" name="password">
+                    <i class="lock icon"></i>
+                </div>
+                <button type="submit" class="ui fluid button instagram button-login">Login</button>
+            </form>
+            <div class="ui horizontal divider">
+                Or
+            </div>
+        </div>  -->
+        <button type="button" class="ui fluid black button button-login " (click)="googleLogin()" id="log-in-service">
+            <i class="google icon"></i>
+            Login with Gmail
+        </button>
+    </div>
+</div>
