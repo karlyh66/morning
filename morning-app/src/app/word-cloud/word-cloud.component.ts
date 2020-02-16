@@ -3,6 +3,7 @@ import *  as  data from '../../data/words.json';
 import { UserService } from '../services/user.service';
 import { Session } from '../model/session';
 import { SessionService } from '../services/session.service.js';
+import { Router } from '@angular/router';
 declare const CircleManager: any;
 
 @Component({
@@ -12,9 +13,10 @@ declare const CircleManager: any;
 })
 export class WordCloudComponent implements OnInit {
 
-  constructor(public userService: UserService, public sessionService: SessionService) { }
+  constructor(public userService: UserService, public sessionService: SessionService, public router: Router) { }
 
   clicks = 0;
+  show = true;
   circleManager = null;
   currentUser = null;
   pos_words = null;
@@ -38,7 +40,9 @@ export class WordCloudComponent implements OnInit {
     this.clicks++;
     
     if (this.clicks == 25) {
+      this.show = false;
       this.createNewSession(this.circleManager.getPicked())
+      this.router.navigateByUrl('/stats');
     }
   }
 

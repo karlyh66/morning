@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/css/adjustSize.css"
+              "src/assets/css/adjustSize.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "src/assets/external_js/adjustSize.js",
