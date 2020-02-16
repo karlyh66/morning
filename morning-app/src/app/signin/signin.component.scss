@@ -1,3 +1,7 @@
+* {
+  background-color: #FFF1D0 !important;
+}
+
 html,
 body {
   background: #fff1d0 !important;
@@ -7,12 +11,14 @@ body {
   font-family: "Varela Round";
 }
 
+
 .logo-img {
-  height: 60px;
+  height: 75px;
   margin-left: 40px;
 }
 
 .google-signin {
+  background-color: black !important;
   font-size: 16px;
   text-align: center;
   margin-left: 40px;
@@ -20,11 +26,12 @@ body {
 
 .google-logo {
   margin-right: 10px;
+  background-color: black !important;
 }
 
 /*=== 2. Anchor Link ===*/
 a {
-  color: #aaaaaa;
+  color: #333333;
   transition: all ease-in-out 200ms;
 }
 a:hover {
@@ -33,7 +40,7 @@ a:hover {
 }
 /*=== 3. Text Outside the Box ===*/
 .etc-login-form {
-  color: #919191;
+  color: #333333;
   font-size: 14px !important;
   padding: 10px 20px;
 }
@@ -81,7 +88,7 @@ a:hover {
 
 .login-group {
   background: #ffffff;
-  color: #999999;
+  color: #333333 !important;
   border-radius: 8px;
   padding: 10px 20px;
 }
