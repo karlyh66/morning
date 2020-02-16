@@ -16,6 +16,7 @@ import { UserService } from './services/user.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { Component} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { WeatherWidgetMainComponent } from './weather/weather.component';
@@ -31,6 +32,7 @@ import { WeatherWidgetMainComponent } from './weather/weather.component';
   imports: [
     HttpClientModule,
     CommonModule,
+    NgbModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
