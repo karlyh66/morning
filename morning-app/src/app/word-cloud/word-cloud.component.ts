@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  *  as  data  from '../../data/words.json';
+import { UserService } from '../services/user.service';
 declare const CircleManager: any;
 
 @Component({
@@ -9,12 +10,15 @@ declare const CircleManager: any;
 })
 export class WordCloudComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
 
     let pos_words = this.randomWordSeed(data.positive, 14);
     let neg_words = this.randomWordSeed(data.negative, 14);
+
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.userService.AddUser(user);
 
     let circleManager = new CircleManager('container');
     this.addWords(circleManager, pos_words);
@@ -30,8 +34,6 @@ export class WordCloudComponent implements OnInit {
   randomWordSeed(words, total) {
 
     let wordIndices  = this.randomNumbers(total, words.length);
-
-    console.log(wordIndices);
 
     let word_list = []
 
