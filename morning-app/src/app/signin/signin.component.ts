@@ -31,10 +31,10 @@ export class SigninComponent implements OnInit {
         console.log(currentUser);
         this.userService.AddUser(currentUser);
         this.router.navigateByUrl('/home');
-        //location.reload();
+        location.reload();
       } else {
         let user = this.userService.GetUser(fbUser.uid).valueChanges().subscribe(user => {
-          sessionStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('user', JSON.stringify(user));
           this.router.navigateByUrl('/home')
         });
 
