@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
+import { DataComponent} from './data/data.component'
 import { NewUserComponent } from './new-user/new-user.component';
 
 import { Component} from '@angular/core';
@@ -16,8 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { WeatherWidgetMainComponent } from './weather/weather.component';
 
+import { GoogleChartsModule } from 'angular-google-charts';
+
 @NgModule({
   declarations: [
+    DataComponent,
     WeatherWidgetMainComponent,
     AppComponent,
     TitleBarComponent,
@@ -30,7 +34,8 @@ import { WeatherWidgetMainComponent } from './weather/weather.component';
     AngularFireModule.initializeApp(environment.firebase),
  	  AngularFirestoreModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

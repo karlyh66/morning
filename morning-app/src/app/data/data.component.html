@@ -1,4 +1,13 @@
-<div ng-app = "graphs">
+<google-chart #chart
+   [title]="title"
+   [type]="type"
+   [data]="data"
+   [columnNames]="columnNames"
+   [options]="options"
+   [width]="width"
+   [height]="height">
+</google-chart>
+<!-- <div ng-app = "graphs">
 
   <div ng-controller = "graphController as graph">
 
@@ -9,9 +18,9 @@
       <div class = "x">{{xAxis}}</div>
 
       <div ng-repeat = "bar in data"{{bar}} class = "bar" 
-      	style = "height:{{bar.value / max * height}}px; 
-      	width:{{width / data.length - 5}}px; 
-      	left:{{$index / data.length * width}}px; ">     		
+        style = "height:{{bar.value / max * height}}px; 
+        width:{{width / data.length - 5}}px; 
+        left:{{$index / data.length * width}}px; ">         
       </div>
 
     </div>
@@ -19,3 +28,4 @@
   </div>
 
 </div>
+ -->
