@@ -45,7 +45,7 @@ export class UserService {
 
     // Delete Student
     DeleteStudent(id: string) {
-        this.userRef = this.db.object('students-list/' + id);
+        this.userRef = this.db.object('user-list/' + id);
         this.userRef.remove();
     }
 }

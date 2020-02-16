@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import  *  as  data  from '../../data/words.json';
+import *  as  data from '../../data/words.json';
 import { UserService } from '../services/user.service';
+import { Session } from '../model/session';
+import { SessionService } from '../services/session.service.js';
 declare const CircleManager: any;
 
 @Component({
@@ -10,19 +12,55 @@ declare const CircleManager: any;
 })
 export class WordCloudComponent implements OnInit {
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, public sessionService: SessionService) { }
+
+  clicks = 0;
+  circleManager = null;
+  currentUser = null;
+  pos_words = null;
+  neg_words = null;
 
   ngOnInit() {
 
-    let pos_words = this.randomWordSeed(data.positive, 14);
-    let neg_words = this.randomWordSeed(data.negative, 14);
+    this.pos_words = this.randomWordSeed(data.positive, 14);
+    this.neg_words = this.randomWordSeed(data.negative, 14);
 
-    let user = JSON.parse(localStorage.getItem('user'));
-    this.userService.AddUser(user);
+    this.currentUser = JSON.parse(localStorage.getItem('user'));
 
-    let circleManager = new CircleManager('container');
-    this.addWords(circleManager, pos_words);
-    this.addWords(circleManager, neg_words);
+    this.circleManager = new CircleManager('container');
+
+    this.addWords(this.circleManager, this.pos_words);
+    this.addWords(this.circleManager, this.neg_words);
+
+  }
+
+  clicked() {
+    this.clicks++;
+    
+    if (this.clicks == 25) {
+      this.createNewSession(this.circleManager.getPicked())
+    }
+  }
+
+  createNewSession(picked) {
+
+    let newSession = new Session();
+
+    newSession.user_id = this.currentUser.id;
+    newSession.pos_words = []; 
+    newSession.pos_words = [];
+
+    picked.forEach(word => {
+      if (this.pos_words.includes(word) && !newSession.pos_words.includes(word)) {
+        newSession.pos_words.push(word);
+      } else if (this.neg_words.includes(word) && !newSession.neg_words.includes(word)) {
+        newSession.neg_words.push(word);
+      }
+    });
+
+    newSession.date = new Date(Date.now()).toISOString();
+
+    this.sessionService.AddSession(newSession);
   }
 
   addWords(circleManager, words) {
@@ -33,7 +71,7 @@ export class WordCloudComponent implements OnInit {
 
   randomWordSeed(words, total) {
 
-    let wordIndices  = this.randomNumbers(total, words.length);
+    let wordIndices = this.randomNumbers(total, words.length);
 
     let word_list = []
 
