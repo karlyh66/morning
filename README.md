@@ -8,4 +8,4 @@ We built morning with an Angujar.js framework and Firebase for storage.
 
 For the future, we're hoping to integrate more mental health-focused features and make mental health resources more accessible to every user.
 
-https://imgur.com/a/JhiPO3n
+![bubbles](https://imgur.com/a/JhiPO3n)
