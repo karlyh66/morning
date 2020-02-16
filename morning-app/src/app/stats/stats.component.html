@@ -1,7 +1,12 @@
-<div class="container-box">
+<div class="container-box" *ngIf="show">
     <div class="thankyou-message">
-        <p>Thank you, we've got what we needed for today.</p>
+        <b>Thank you, we've got what we needed for today.</b>
+        <p>
+            <button type="button" (click)="hide()" class="btn btn-secondary results-button">Let's see your results...</button>
+        </p>
     </div>
+</div>
 
-
+<div class="dashboard-box" *ngIf="!show">
+    <img class="img-fluid" alt="Responsive image" src="../../assets/images/dashboard.png">
 </div>
